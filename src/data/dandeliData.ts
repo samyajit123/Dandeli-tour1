@@ -1161,6 +1161,26 @@ export const GUEST_REVIEWS: ReviewItem[] = [
     review:
       'Only 2.5 hours from Goa, Dandeli felt like a magical realm. The birdwatching walk with the resident naturalist was unforgettable. Saw Malabar Pied Hornbills and emerald doves. Highly recommend Dandeli Tours.',
   },
+  {
+    id: 'rev-5',
+    name: 'Priya Kulkarni',
+    tripType: 'Adventure Couple',
+    rating: 5,
+    location: 'Mumbai',
+    date: 'October 2025',
+    review:
+      'An amazing weekend in Dandeli. The kayaking and river activities were perfectly organized, and the entire team made us feel safe throughout. The forest surroundings were beautiful and the experience felt genuinely refreshing.',
+  },
+  {
+    id: 'rev-6',
+    name: 'Arjun Nair & Friends',
+    tripType: 'Friends Group',
+    rating: 5,
+    location: 'Bengaluru',
+    date: 'September 2025',
+    review:
+      'We travelled with a group of friends and had an incredible time. From rafting and jungle activities to the evening campfire, everything was well managed. The guides were friendly, helpful, and made the whole trip memorable.',
+  },
 ];
 
 export const FAQS_DATA: FaqItem[] = [

@@ -57,7 +57,7 @@ export const GuestReviewsSection: React.FC = () => {
             <div
               key={review.id}
               id={`review-card-${review.id}`}
-              className="w-[84vw] max-w-[340px] shrink-0 snap-start flex flex-col justify-between sm:w-auto sm:max-w-none bg-white text-[#0c2b20] rounded-xl p-5 sm:p-6 border border-[#0c2b20]/10 shadow-xs"
+              className="w-[84vw] max-w-[340px] shrink-0 snap-start flex flex-col justify-between sm:w-auto sm:max-w-none bg-white text-[#0c2b20] rounded-xl p-5 sm:p-6 border border-[#0c2b20]/10 shadow-xs h-full"
             >
               {/* Top Star Rating & Quote */}
               <div>
