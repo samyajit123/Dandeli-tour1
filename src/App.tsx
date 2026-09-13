@@ -36,14 +36,57 @@ export default function App() {
   };
 
   const handleSelectExperienceByTitle = (title: string) => {
+    const normalized = title.trim().toLowerCase();
     const found = FEATURED_EXPERIENCES.find(
-      (e) => e.title.toLowerCase() === title.toLowerCase()
+      (e) => e.title.toLowerCase() === normalized || e.id.toLowerCase() === normalized
     );
     if (found) {
       setSelectedExperience(found);
-    } else {
-      handleOpenPlanMyTrip(title);
+      return;
     }
+
+    // Direct mappings for editorial experience cards to ensure dedicated detail view
+    if (normalized.includes('wildlife') || normalized.includes('safari')) {
+      const exp = FEATURED_EXPERIENCES.find((e) => e.id === 'wildlife-experiences');
+      if (exp) {
+        setSelectedExperience(exp);
+        return;
+      }
+    }
+
+    if (normalized.includes('family') || normalized.includes('getaway')) {
+      const exp = FEATURED_EXPERIENCES.find((e) => e.id === 'family-getaways');
+      if (exp) {
+        setSelectedExperience(exp);
+        return;
+      }
+    }
+
+    if (normalized.includes('jungle') || normalized.includes('trekking') || normalized.includes('adventure')) {
+      const exp = FEATURED_EXPERIENCES.find((e) => e.id === 'jungle-adventures' || e.id === 'jungle-trekking');
+      if (exp) {
+        setSelectedExperience(exp);
+        return;
+      }
+    }
+
+    if (normalized.includes('rafting')) {
+      const exp = FEATURED_EXPERIENCES.find((e) => e.id === 'white-water-rafting');
+      if (exp) {
+        setSelectedExperience(exp);
+        return;
+      }
+    }
+
+    if (normalized.includes('campfire')) {
+      const exp = FEATURED_EXPERIENCES.find((e) => e.id === 'campfire-nights');
+      if (exp) {
+        setSelectedExperience(exp);
+        return;
+      }
+    }
+
+    handleOpenPlanMyTrip(title);
   };
 
   const handleScrollToSection = (sectionId: string) => {

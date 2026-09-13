@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { Menu, X, Phone, Calendar, ArrowRight } from 'lucide-react';
 import { FOOTER_DATA } from '../data/dandeliData';
 import { DandeliLogoMark } from './DandeliLogoMark';
+import { LanguageSelector } from './LanguageSelector';
+import { useLanguage } from '../context/LanguageContext';
 
 interface HeaderProps {
   onOpenBooking: () => void;
@@ -11,6 +13,7 @@ interface HeaderProps {
 export const Header: React.FC<HeaderProps> = ({ onOpenBooking, onOpenTripPlanner }) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const { t } = useLanguage();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -21,14 +24,14 @@ export const Header: React.FC<HeaderProps> = ({ onOpenBooking, onOpenTripPlanner
   }, []);
 
   const navLinks = [
-    { label: 'Overview', href: '#hero' },
-    { label: 'Tour Packages', href: '#packages' },
-    { label: 'Activities & Adventures', href: '#activities' },
-    { label: 'Why Choose Us', href: '#why-choose-us' },
-    { label: 'Rooms & Stays', href: '#rooms-stays' },
-    { label: 'Guest Reviews', href: '#reviews' },
-    { label: 'Photo Gallery', href: '#gallery' },
-    { label: 'Contact & Map', href: '#contact' },
+    { label: t('overview'), href: '#hero' },
+    { label: t('packages'), href: '#packages' },
+    { label: t('activities'), href: '#activities' },
+    { label: t('whyUs'), href: '#why-choose-us' },
+    { label: t('roomsStays'), href: '#rooms-stays' },
+    { label: t('reviews'), href: '#reviews' },
+    { label: t('gallery'), href: '#gallery' },
+    { label: t('contact'), href: '#contact' },
   ];
 
   const handleLinkClick = (href: string) => {
@@ -49,7 +52,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenBooking, onOpenTripPlanner
             : 'bg-gradient-to-b from-black/65 via-black/25 to-transparent py-3.5'
         }`}
       >
-        <div className="max-w-md md:max-w-4xl lg:max-w-6xl mx-auto px-4 flex items-center justify-between">
+        <div className="w-full max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
           {/* Brand Logo */}
           <a
             href="#hero"
@@ -112,7 +115,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenBooking, onOpenTripPlanner
           >
             {/* Drawer Header */}
             <div className="flex items-center justify-between pb-4 border-b border-[#0c2b20]/10">
-              <div className="flex items-center gap-2.5">
+              <div className="flex items-center gap-2.5 min-w-0">
                 <div className="w-8 h-8 rounded-lg bg-[#0c2b20] border border-[#22c55e]/25 flex items-center justify-center p-1 text-[#22c55e] shrink-0">
                   <DandeliLogoMark className="w-full h-full" variant="dark" />
                 </div>
@@ -125,12 +128,19 @@ export const Header: React.FC<HeaderProps> = ({ onOpenBooking, onOpenTripPlanner
                   </span>
                 </div>
               </div>
-              <button
-                onClick={() => setIsMobileMenuOpen(false)}
-                className="w-8 h-8 rounded-lg bg-[#f5f1e8] hover:bg-[#eae3d2] flex items-center justify-center text-[#0c2b20] transition-colors"
-              >
-                <X className="w-4 h-4" />
-              </button>
+
+              {/* Right: Compact Language Selector + Close X Button */}
+              <div className="flex items-center gap-2 shrink-0">
+                <LanguageSelector variant="compact" />
+                <button
+                  id="mobile-nav-close-btn"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  className="w-8 h-8 rounded-lg bg-[#f5f1e8] hover:bg-[#eae3d2] active:bg-[#eae3d2] flex items-center justify-center text-[#0c2b20] transition-colors"
+                  aria-label="Close menu"
+                >
+                  <X className="w-4 h-4" />
+                </button>
+              </div>
             </div>
 
             {/* Nav Links */}
@@ -157,7 +167,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenBooking, onOpenTripPlanner
                 className="w-full bg-transparent hover:bg-[#0c2b20]/5 border border-[#0c2b20]/20 text-[#0c2b20] py-2.5 px-4 rounded-lg text-xs sm:text-sm font-medium flex items-center justify-center gap-2 transition-colors"
               >
                 <Calendar className="w-4 h-4 text-[#1b533f]" />
-                <span>Plan My Custom Trip</span>
+                <span>{t('planTrip')}</span>
               </button>
 
               <button
@@ -167,14 +177,14 @@ export const Header: React.FC<HeaderProps> = ({ onOpenBooking, onOpenTripPlanner
                 }}
                 className="w-full bg-[#0c2b20] hover:bg-[#133e2f] text-[#fcfbf7] py-3 px-4 rounded-lg text-xs sm:text-sm font-medium flex items-center justify-center gap-2 shadow-xs transition-colors"
               >
-                <span>Book Dandeli Package</span>
+                <span>{t('bookPackage')}</span>
                 <ArrowRight className="w-4 h-4 text-[#22c55e]" />
               </button>
 
               {/* Direct Call hotline */}
               <div className="pt-2 flex items-center justify-center gap-2 text-xs text-[#1b533f]">
                 <Phone className="w-3.5 h-3.5" />
-                <span>Call Us: {FOOTER_DATA.phone}</span>
+                <span>{t('callPrefix')}: {FOOTER_DATA.phone}</span>
               </div>
             </div>
           </div>
