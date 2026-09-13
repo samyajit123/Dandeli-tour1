@@ -1,0 +1,60 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --forest-950: #061912;
+    --forest-900: #0c2b20;
+    --forest-800: #133e2f;
+    --forest-700: #1b533f;
+    --olive-600: #6b8450;
+    --olive-500: #7d985a;
+    --olive-400: #8ea667;
+    --olive-300: #9cb475;
+    --cream-50: #fcfbf7;
+    --cream-100: #f6f4ee;
+    --cream-200: #eae4d5;
+    --mint-400: #22c55e;
+    --mint-500: #16a34a;
+  }
+
+  /* Hide default scrollbar globally while keeping vertical scrolling smooth */
+  html {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+  html::-webkit-scrollbar {
+    display: none;
+  }
+
+  body {
+    background-color: #f6f4ee;
+    color: #1a2420;
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Helvetica Neue", Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+  body::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+/* Hide scrollbar for touch-friendly horizontal swipe carousels */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Apple-inspired refined typography aliases */
+.font-cormorant,
+.font-editorial,
+.font-serif-accent {
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Helvetica Neue", Arial, sans-serif;
+  letter-spacing: -0.015em;
+}
+

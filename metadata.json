@@ -1,0 +1,6 @@
+{
+  "name": "Dandeli Tours - Experience Dandeli Article Hub",
+  "description": "Mobile-first editorial travel destination guide and adventure hub for Dandeli, inspired by Experience Abu Dhabi.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
