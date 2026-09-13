@@ -77,20 +77,6 @@ export const Header: React.FC<HeaderProps> = ({ onOpenBooking, onOpenTripPlanner
 
           {/* Right Action Buttons */}
           <div className="flex items-center gap-2">
-            {/* BOOK NOW button: restrained Apple-like button */}
-            <button
-              id="header-book-now-btn"
-              onClick={onOpenBooking}
-              className={`px-4 py-2 rounded-lg text-xs sm:text-sm font-medium transition-colors flex items-center gap-1.5 active:scale-[0.98] ${
-                isScrolled
-                  ? 'bg-[#0c2b20] hover:bg-[#133e2f] text-[#fcfbf7]'
-                  : 'bg-white hover:bg-[#f6f4ee] text-[#0c2b20] shadow-sm'
-              }`}
-            >
-              <span>Book Now</span>
-              <ArrowRight className="w-3.5 h-3.5 text-[#1b533f]" />
-            </button>
-
             {/* Menu / Hamburger Button */}
             <button
               id="header-menu-btn"

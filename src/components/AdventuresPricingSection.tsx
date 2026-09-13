@@ -2,6 +2,7 @@ import React from 'react';
 import { ArrowRight, Clock } from 'lucide-react';
 import { FEATURED_EXPERIENCES } from '../data/dandeliData';
 import { FeaturedExperience } from '../types';
+import { CarouselTrack } from './CarouselTrack';
 
 interface AdventuresPricingSectionProps {
   onSelectExperience: (exp: FeaturedExperience) => void;
@@ -32,7 +33,11 @@ export const AdventuresPricingSection: React.FC<AdventuresPricingSectionProps> =
       </div>
 
       {/* Horizontal Swipe Carousel on Mobile / Clean Grid on Desktop */}
-      <div className="flex overflow-x-auto snap-x snap-mandatory scroll-smooth no-scrollbar -mx-4 px-4 gap-3.5 pb-2 sm:grid sm:grid-cols-2 lg:grid-cols-3 sm:overflow-visible sm:mx-0 sm:px-0 sm:gap-4 mb-6">
+      <CarouselTrack
+        id="adventures-carousel"
+        gridCols="sm:grid-cols-2 lg:grid-cols-3"
+        viewportClassName="mb-6"
+      >
         {displayAdventures.map((exp) => (
           <div
             key={exp.id}
@@ -110,7 +115,7 @@ export const AdventuresPricingSection: React.FC<AdventuresPricingSectionProps> =
             </div>
           </div>
         ))}
-      </div>
+      </CarouselTrack>
 
       {/* Action Buttons */}
       <div className="space-y-2.5 max-w-[430px] mx-auto">

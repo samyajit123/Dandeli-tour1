@@ -2,6 +2,7 @@ import React from 'react';
 import { Clock, ArrowRight, CheckCircle2 } from 'lucide-react';
 import { TOUR_PACKAGES } from '../data/dandeliData';
 import { TourPackageItem } from '../types';
+import { CarouselTrack } from './CarouselTrack';
 
 interface PackagesSectionProps {
   onSelectPackage: (pkg: TourPackageItem) => void;
@@ -25,7 +26,7 @@ export const PackagesSection: React.FC<PackagesSectionProps> = ({
       </div>
 
       {/* Horizontal Carousel on Mobile / Clean Grid on Desktop */}
-      <div className="flex overflow-x-auto snap-x snap-mandatory scroll-smooth no-scrollbar -mx-4 px-4 gap-3.5 pb-2 sm:grid sm:grid-cols-2 lg:grid-cols-4 sm:overflow-visible sm:mx-0 sm:px-0 sm:gap-4">
+      <CarouselTrack id="packages-carousel" gridCols="sm:grid-cols-2 lg:grid-cols-4">
         {TOUR_PACKAGES.map((pkg) => (
           <div
             key={pkg.id}
@@ -107,7 +108,7 @@ export const PackagesSection: React.FC<PackagesSectionProps> = ({
             </div>
           </div>
         ))}
-      </div>
+      </CarouselTrack>
     </section>
   );
 };

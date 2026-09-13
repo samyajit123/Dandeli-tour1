@@ -2,6 +2,7 @@ import React from 'react';
 import { ArrowRight, Users, Heart, Compass, Sparkles } from 'lucide-react';
 import { AUDIENCE_CARDS } from '../data/dandeliData';
 import { AudienceCard } from '../types';
+import { CarouselTrack } from './CarouselTrack';
 
 interface AudienceCarouselProps {
   onSelectAudience: (card: AudienceCard) => void;
@@ -43,15 +44,15 @@ export const AudienceCarousel: React.FC<AudienceCarouselProps> = ({ onSelectAudi
         </div>
 
         {/* Horizontally Scrollable Touch-Friendly Cards */}
-        <div
+        <CarouselTrack
           id="audience-scroll-container"
-          className="flex gap-4 overflow-x-auto no-scrollbar snap-x snap-mandatory pt-2 pb-4 -mx-4 px-4 scroll-smooth"
+          gridCols="md:grid-cols-2 lg:grid-cols-4"
         >
           {AUDIENCE_CARDS.map((card) => (
             <div
               key={card.id}
               onClick={() => onSelectAudience(card)}
-              className="snap-center shrink-0 w-[82vw] max-w-[320px] bg-[#fcfbf7] rounded-2xl overflow-hidden border border-[#0c2b20]/15 shadow-sm hover:shadow-md transition-all duration-300 active:scale-[0.99] cursor-pointer flex flex-col group"
+              className="snap-start shrink-0 w-[84vw] max-w-[340px] md:w-auto md:max-w-none bg-[#fcfbf7] rounded-2xl overflow-hidden border border-[#0c2b20]/15 shadow-sm hover:shadow-md transition-all duration-300 active:scale-[0.99] cursor-pointer flex flex-col group"
             >
               {/* Image Container with high quality photography */}
               <div className="aspect-[4/3] w-full relative overflow-hidden bg-[#0c2b20]">
@@ -115,7 +116,7 @@ export const AudienceCarousel: React.FC<AudienceCarouselProps> = ({ onSelectAudi
               </div>
             </div>
           ))}
-        </div>
+        </CarouselTrack>
 
         {/* Mobile Swipe Hint */}
         <div className="mt-1 flex items-center justify-center gap-1.5 text-[11px] font-semibold text-[#1b533f]/70">

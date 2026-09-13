@@ -2,6 +2,7 @@ import React from 'react';
 import { Bed, Users, CheckCircle2 } from 'lucide-react';
 import { ROOM_STAYS } from '../data/dandeliData';
 import { RoomStayItem } from '../types';
+import { CarouselTrack } from './CarouselTrack';
 
 interface RoomsStaysSectionProps {
   onSelectRoom: (room: RoomStayItem) => void;
@@ -27,7 +28,11 @@ export const RoomsStaysSection: React.FC<RoomsStaysSectionProps> = ({
       </div>
 
       {/* Horizontal Carousel on Mobile / Clean Grid on Desktop */}
-      <div className="flex overflow-x-auto snap-x snap-mandatory scroll-smooth no-scrollbar -mx-4 px-4 gap-3.5 pb-2 sm:grid sm:grid-cols-2 lg:grid-cols-3 sm:overflow-visible sm:mx-0 sm:px-0 sm:gap-4 mb-6">
+      <CarouselTrack
+        id="rooms-carousel"
+        gridCols="sm:grid-cols-2 lg:grid-cols-3"
+        viewportClassName="mb-6"
+      >
         {ROOM_STAYS.map((room) => (
           <div
             key={room.id}
@@ -119,7 +124,7 @@ export const RoomsStaysSection: React.FC<RoomsStaysSectionProps> = ({
             </div>
           </div>
         ))}
-      </div>
+      </CarouselTrack>
 
       {/* Explore Our Stays CTA Button */}
       <div className="max-w-[430px] mx-auto">

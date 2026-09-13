@@ -50,6 +50,18 @@
   scrollbar-width: none;
 }
 
+/* Global Carousel Track System: guarantees symmetrical padding and scroll-padding */
+.carousel-track {
+  scroll-padding-inline: 1rem;
+  -webkit-overflow-scrolling: touch;
+}
+
+@media (min-width: 640px) {
+  .carousel-track {
+    scroll-padding-inline: 0;
+  }
+}
+
 /* Apple-inspired refined typography aliases */
 .font-cormorant,
 .font-editorial,

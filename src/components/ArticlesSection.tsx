@@ -2,6 +2,7 @@ import React from 'react';
 import { BookOpen, Clock, ArrowRight } from 'lucide-react';
 import { ARTICLES_DATA } from '../data/dandeliData';
 import { ArticleItem } from '../types';
+import { CarouselTrack } from './CarouselTrack';
 
 interface ArticlesSectionProps {
   onSelectArticle: (article: ArticleItem) => void;
@@ -28,12 +29,15 @@ export const ArticlesSection: React.FC<ArticlesSectionProps> = ({ onSelectArticl
         </div>
 
         {/* Horizontally Scrollable Cards on Mobile / Responsive Grid on Desktop */}
-        <div className="flex md:grid md:grid-cols-2 lg:grid-cols-3 gap-4 overflow-x-auto no-scrollbar snap-x snap-mandatory pb-4 -mx-4 px-4">
+        <CarouselTrack
+          id="articles-carousel"
+          gridCols="md:grid-cols-2 lg:grid-cols-3"
+        >
           {ARTICLES_DATA.map((article) => (
             <article
               key={article.id}
               onClick={() => onSelectArticle(article)}
-              className="snap-center shrink-0 w-[78vw] max-w-[300px] md:w-auto md:max-w-none bg-[#fcfbf7] rounded-2xl overflow-hidden border border-[#0c2b20]/15 shadow-xs hover:shadow-md transition-all duration-300 active:scale-[0.99] cursor-pointer flex flex-col group"
+              className="snap-start shrink-0 w-[84vw] max-w-[340px] md:w-auto md:max-w-none bg-[#fcfbf7] rounded-2xl overflow-hidden border border-[#0c2b20]/15 shadow-xs hover:shadow-md transition-all duration-300 active:scale-[0.99] cursor-pointer flex flex-col group"
             >
               {/* Card Image */}
               <div className="aspect-[16/10] w-full relative overflow-hidden bg-[#0c2b20]">
@@ -81,7 +85,7 @@ export const ArticlesSection: React.FC<ArticlesSectionProps> = ({ onSelectArticl
               </div>
             </article>
           ))}
-        </div>
+        </CarouselTrack>
 
         {/* Mobile Swipe Hint */}
         <div className="mt-2 md:hidden flex items-center justify-center gap-1.5 text-[11px] font-semibold text-[#1b533f]/70">
