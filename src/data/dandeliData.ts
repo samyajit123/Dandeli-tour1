@@ -30,7 +30,7 @@ export const HERO_DATA = {
     'Adventure, rivers, wildlife and unforgettable moments in the heart of Dandeli.',
   badge: 'WESTERN GHATS • RIVER KALI • KARNATAKA',
   heroVideo:
-    'https://res.cloudinary.com/fuqocwx8/video/upload/v1789283058/watermark-removed_jovl9p.mp4',
+    'https://res.cloudinary.com/fuqocwx8/video/upload/ac_none/v1789283058/watermark-removed_jovl9p.mp4',
   heroImage: RAFTING_PHOTOS.heroRafting4k,
   heroNatureImage: STAYS_PHOTOS.ecoCottageExterior,
   quickTags: ['River Kali', 'White Water', 'Hornbill Sanctuary', 'Jungle Safari', 'Eco Stays'],

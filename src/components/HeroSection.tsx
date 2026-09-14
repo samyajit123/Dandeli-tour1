@@ -14,12 +14,28 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
   const videoRef = useRef<HTMLVideoElement>(null);
 
   useEffect(() => {
-    // Ensure muted is explicitly set on the DOM node for reliable mobile autoplay
-    if (videoRef.current) {
-      videoRef.current.muted = true;
-      videoRef.current.play().catch(() => {
+    // Ensure video is strictly muted with zero volume across all devices
+    const video = videoRef.current;
+    if (video) {
+      video.muted = true;
+      video.defaultMuted = true;
+      video.volume = 0;
+
+      const enforceMuted = () => {
+        if (video && (!video.muted || video.volume > 0)) {
+          video.muted = true;
+          video.volume = 0;
+        }
+      };
+
+      video.addEventListener('volumechange', enforceMuted);
+      video.play().catch(() => {
         // Fallback or user-gesture required
       });
+
+      return () => {
+        video.removeEventListener('volumechange', enforceMuted);
+      };
     }
   }, []);
 
